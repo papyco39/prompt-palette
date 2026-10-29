@@ -1,0 +1,33 @@
+/* v0.9.0: NAI editing and saved generation information have separate screens. */
+.reset-work{color:#a94355;border-color:#d8a8b2;background:white}.reset-work:hover{color:#913145;background:#fff3f5;border-color:#bd7687}.nai-workflow-head{align-items:flex-start}.nai-workflow-head .row{justify-content:flex-end}.nai-workflow-head button{font-size:12px;padding:7px 10px}.nai-editor-columns{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;align-items:start}.nai-editor-left,.nai-editor-right{min-width:0}.nai-editor-columns .nai-base{margin:12px 0 0}.nai-editor-right>.topline{min-height:40px}.nai-editor-columns #naiCharacters{display:block;margin:0}.nai-editor-columns .nai-character{margin:8px 0;padding:14px}.nai-character-tabs{margin:0;max-width:100%}.nai-character-tabs button{max-width:160px;overflow:hidden;text-overflow:ellipsis;display:block}.nai-character .nai-prompt-tabs{margin:10px 0 4px}.nai-prompt-tabs button{flex:1;justify-content:center}.nai-character textarea{width:100%;resize:none;overflow:hidden}.nai-editor-columns .nai-materials{gap:10px}.nai-editor-columns .nai-materials>.card{padding:12px}.nai-editor-columns .nai-materials textarea{font-size:12px;min-height:90px}.preset-settings{margin-top:14px;padding:12px}.preset-settings>.generation-grid{margin-top:10px}.preset-settings input{width:100%}#naiPresetCharacters{margin-top:10px}#naiPresetCharacters textarea,#naiPresetCharacters input{width:100%}#naiPresetCharacters textarea{resize:none;overflow:hidden}#naiPresetCharacters .memo-tabs button{max-width:170px;overflow:hidden;text-overflow:ellipsis;display:block}.nai-saved-generation{margin-top:16px}.nai-card-actions{flex-wrap:wrap}.nai-card-actions button{flex:1;white-space:normal}.nai-saved-generation pre,.preset-settings pre{white-space:pre-wrap;overflow-wrap:anywhere;max-height:260px;overflow:auto}.nai-saved-generation dd{overflow-wrap:anywhere}.nai-workflow-head .row{gap:6px}#naiPresetExtractStatus{white-space:pre-wrap;overflow-wrap:anywhere}
+@media(max-width:760px){.nai-editor-columns{grid-template-columns:1fr;gap:16px}.nai-workflow-head{display:block}.nai-workflow-head h2{margin-bottom:9px}.nai-workflow-head .row{justify-content:flex-start}.nai-workflow-head button{font-size:11px;min-height:36px;padding:6px 8px}.nai-editor-columns .nai-base{margin-bottom:0}.nai-editor-columns .nai-materials textarea{min-height:80px}.nai-editor-right .nai-character{padding:12px}.nai-character-tabs button{max-width:130px}.nai-image-row{flex-wrap:wrap}.nai-image-row>.row{min-width:0;flex:1}.nai-image-row>.row button{font-size:11px}.reset-work{font-size:11px}.nai-card-actions button{font-size:10px}#naiPresetCharacters .memo-tabs button{max-width:130px}}
+
+/* v0.9.1: compact NAI-only controls and folder tabs. */
+.nai-style-card textarea{width:100%;margin-top:8px}
+.nai-field-heading{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:10px 0 5px}
+.nai-field-heading>label,.nai-field-heading h3{margin:0!important}
+.nai-field-heading>span:first-child{min-width:0;overflow-wrap:anywhere}
+.nai-inline-copy{flex:none;font-size:12px;min-height:32px;padding:5px 10px}
+.nai-editor-columns .nai-character-tabs{gap:4px;padding:5px 2px 0;margin:0;border-bottom:1px solid #d5c8ed;align-items:end}
+.nai-editor-columns .nai-character-tabs button{border-radius:10px 10px 0 0;border:1px solid #d5c8ed;border-bottom:0;background:#faf9fc;padding:10px 14px;max-width:160px;min-height:38px;flex-shrink:0;margin:0;position:relative}
+.nai-editor-columns .nai-character-tabs button.selected{background:#f2edfc;color:#6545aa;box-shadow:0 2px 0 #f2edfc;z-index:1}
+.nai-editor-columns .nai-character-tabs #addNAICharacter{padding:8px 12px;min-width:38px;max-width:42px}
+.nai-editor-columns .nai-character{margin:0;border-radius:0 0 12px 12px;border-color:#d5c8ed;border-top:0;background:linear-gradient(#f2edfc 0,#fff 80px)}
+.nai-character>.topline{gap:5px}.nai-character>.topline h3{flex:1}.nai-character>.topline button{font-size:12px;min-height:32px;padding:5px 9px}
+.nai-character [hidden]{display:none!important}
+.nai-detail-text{margin-top:16px;min-width:0}
+.nai-detail-content{white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:13px;line-height:1.6;max-height:calc(5 * 1.6 * 13px + 20px);overflow-y:auto;overflow-x:hidden;box-sizing:border-box;margin:0;background:#faf9fc;border:1px solid var(--line);border-radius:8px;padding:9px 10px;tab-size:4}
+.nai-detail-content.expanded{max-height:none;overflow:visible}
+.nai-expand{margin-top:5px;font-size:12px;padding:5px 10px;min-height:32px}
+.nai-detail-settings{margin-top:16px}.nai-detail-settings dd{overflow-wrap:anywhere}
+.nai-detail-settings pre{white-space:pre-wrap;overflow-wrap:anywhere;max-height:260px;overflow:auto}
+.nai-card .nai-card-actions{display:flex;flex-wrap:nowrap;gap:4px}
+.nai-card .nai-card-actions button{min-width:0;padding:6px 7px;font-size:11px;white-space:nowrap;flex:0 0 auto}
+.nai-card .nai-card-actions [data-nai-full]{flex:1;overflow:hidden;text-overflow:ellipsis}
+@media(max-width:760px){
+ .nai-editor-columns .nai-character-tabs button{max-width:135px;padding:9px 11px}
+ .nai-card .nai-card-actions button{font-size:10px;padding:6px 5px;min-height:36px}
+ .nai-card .nai-card-actions [data-nai-full]{font-size:9px}
+ .nai-detail-heading .row{gap:5px}
+ .nai-detail-content{font-size:13px}
+}

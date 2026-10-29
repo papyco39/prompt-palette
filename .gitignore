@@ -1,0 +1,18 @@
+# Local and personal data
+node_modules/
+__pycache__/
+*.py[cod]
+.env
+.env.*
+!.env.example
+work/
+versions/
+releases/
+backups/
+exports/
+*.log
+.DS_Store
+Thumbs.db
+prompt-palette-*.json
+browser-export*.json
+regression-real.*

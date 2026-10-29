@@ -1,0 +1,9 @@
+/* v0.7.1: the form body owns scrolling; header and actions stay in the dialog. */
+#modal[open],#guardModal[open]{display:flex;flex-direction:column;max-height:90vh;max-height:min(90dvh,calc(100dvh - 24px));overflow:hidden}
+#modal>#modalBody,#guardModal>.body{flex:1 1 auto;min-height:0;overflow-y:auto;overflow-x:hidden;overscroll-behavior-y:contain;touch-action:auto;-webkit-overflow-scrolling:touch}
+#modal>.dialoghead{flex:0 0 auto;position:relative;top:auto;background:white}
+#modal>.foot,#modal>#inlineConfirm,#guardModal>.foot{flex:0 0 auto}
+#modal>.foot,#guardModal>.foot{position:relative;bottom:auto;flex-wrap:wrap;background:white;padding-bottom:max(14px,env(safe-area-inset-bottom))}
+#modal>[hidden],#guardModal>[hidden]{display:none!important}
+#modal>.foot:empty{display:none}
+#modal>#inlineConfirm .row{flex-wrap:wrap}
