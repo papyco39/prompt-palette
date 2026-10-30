@@ -30,7 +30,7 @@ async function api(path,body){
  const get=async(route,options)=>{let response;try{response=await fetch(route,{...options,signal:controller.signal})}catch(e){const message=e.name==='AbortError'?'通信がタイムアウトしました。':'ローカルサーバーに接続できません。start.cmd のウィンドウを閉じずに起動し、旧サーバーが残っていないか確認してください。';throw new LocalAPIError('通信エラー：'+message+' 接続先 '+location.origin+route,'communication','local')}
  let data;try{data=await response.json()}catch{throw new LocalAPIError('HTTP応答エラー：取得APIからJSONが返りませんでした（HTTP '+response.status+'）。新版の start.cmd から起動してください。','http','local')}
  if(!response.ok)throw new LocalAPIError((data.errorType==='communication'?'通信エラー：':'HTTPエラー：')+(data.error||'取得できませんでした')+' [HTTP '+response.status+']',data.errorType||'http',data.stage||'local');return data};
- try{const health=await get('/api/health',{method:'GET',cache:'no-store'});if(health.app!=='prompt-palette'||health.version!=='0.9.2'||!health.capabilities?.includes('pixai-public'))throw new LocalAPIError('HTTP応答エラー：対応するv0.9.2取得APIではありません。旧サーバーを停止し、この版の start.cmd を起動してください。','http','startup');
+ try{const health=await get('/api/health',{method:'GET',cache:'no-store'});if(health.app!=='prompt-palette'||health.version!=='0.12.2'||!health.capabilities?.includes('pixai-public'))throw new LocalAPIError('HTTP応答エラー：対応するv0.12.2取得APIではありません。旧サーバーを停止し、この版の start.cmd を起動してください。','http','startup');
  return await get(path,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)})
  }catch(e){console.error('[PROMPT PALETTE API]',JSON.stringify({type:e.errorType||'communication',stage:e.stage||'local',endpoint:location.origin+path,message:e.message}));throw e}finally{clearTimeout(timer)}
 }

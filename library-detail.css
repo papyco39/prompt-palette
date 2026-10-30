@@ -1,0 +1,39 @@
+/* LIBRARY-only layout; image and prompt styles reuse the existing NAI detail classes. */
+.library-detail-0120 [hidden]{display:none!important}
+.library-detail-tabs{display:flex;gap:5px;align-items:end;border-bottom:1px solid #d5c8ed;margin:0 0 16px;padding-top:4px}
+.library-detail-tabs [role=tab]{flex:1;max-width:190px;min-width:0;border:1px solid #d5c8ed;border-bottom:0;border-radius:10px 10px 0 0;background:#faf9fc;padding:9px 12px;font-size:12px;white-space:nowrap}
+.library-detail-tabs [aria-selected=true]{background:#f2edfc;color:#6545aa;box-shadow:0 2px 0 #f2edfc}
+.library-detail-tabs [role=tab]:focus-visible{outline:2px solid #8764dc;outline-offset:2px}
+.library-detail-0120 [role=tabpanel]{min-width:0}
+.library-detail-0120 .library-prompt-part{min-width:0}
+.library-detail-0120 .tags{margin-top:16px}
+.library-detail-0120 .detail-actions{border-top:1px solid var(--line);margin-top:16px;padding-top:12px}
+.library-detail-0120 .usage-row{height:54px;min-height:54px;box-sizing:border-box;padding:6px;margin-bottom:6px}
+.library-detail-0120 .usage-row img,.library-detail-0120 .usage-row>.mini-thumb{width:36px;min-width:36px;height:40px;flex:0 0 36px;object-fit:cover}
+.library-detail-0120 .usage-name button,.library-detail-0120 .usage-name>span:not(.tiny){display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+.library-detail-0120 .usage-name button{min-height:22px}
+.library-detail-0120 .library-note{border-bottom:1px solid var(--line);padding:0 0 14px;margin:0 0 14px}
+.library-detail-0120 .library-note:last-child{border-bottom:0}
+.library-detail-0120 .library-note h3{margin-top:0}
+.library-detail-0120 .note-body{white-space:pre-wrap;overflow-wrap:anywhere;margin:8px 0}
+.library-detail-0120 .note-images{display:flex;flex-wrap:wrap}
+.library-detail-0120 .note-image{min-width:0}
+.library-detail-0120 .note-image:has(.expanded){width:100%;flex-basis:100%}
+.library-detail-no-image{width:170px;height:170px;display:grid;place-items:center;background:#faf9fc;border:1px dashed var(--line);border-radius:9px;color:var(--muted);font-size:12px}
+@media(max-width:760px){.library-detail-tabs{gap:4px}.library-detail-tabs [role=tab]{font-size:11px;padding:8px 5px}.library-detail-no-image{width:116px;height:116px}}
+
+/* v0.12.1: actions belong to their own tab; no bottom action strip. */
+.library-detail-0120 .library-character-heading{align-items:center;gap:16px}
+.library-detail-info{flex:1;min-width:0}
+.library-detail-0120 .library-detail-info h2{margin:0 0 8px}
+.library-detail-0120 .library-detail-info .tags{margin:0 0 7px}
+.library-detail-folders{gap:5px;margin:0 0 8px}
+.library-top-actions{gap:6px;margin:0 0 12px;flex-wrap:wrap}
+.library-detail-info .library-top-actions{margin:9px 0 0}
+.library-top-actions button{font-size:12px;min-height:36px;padding:7px 10px;white-space:nowrap}
+#referenceComparePrompt.reference-compare-prompt{display:block;width:100%;box-sizing:border-box;font-size:13px;line-height:1.6;padding:9px 10px;height:124px;min-height:124px;max-height:60vh;max-height:60dvh;overflow-y:auto;overflow-x:hidden;resize:vertical;white-space:pre-wrap;overflow-wrap:anywhere;touch-action:pan-y;overscroll-behavior-y:contain;-webkit-overflow-scrolling:touch}
+@media(max-width:760px){
+ .library-detail-0120 .library-character-heading{align-items:flex-start;gap:10px}
+ .library-top-actions{gap:5px}
+ .library-top-actions button{font-size:11px;padding:6px 8px}
+}

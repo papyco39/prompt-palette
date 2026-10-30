@@ -4,7 +4,7 @@ import sys, json, urllib.request, urllib.error
 from pixai_transport import fetch_public
 root = Path(__file__).resolve().parent
 port = int(sys.argv[1]) if len(sys.argv)>1 else 8765
-files = {'/nai-presets.js':'nai-presets.js','/editor-workflow.js':'editor-workflow.js','/nai-workflow.css':'nai-workflow.css','/nai-metadata.js':'nai-metadata.js','/nai-editor.js':'nai-editor.js','/library-ui.js':'library-ui.js','/library-ui.css':'library-ui.css','/':'index.html','/index.html':'index.html','/modal-layout.css':'modal-layout.css','/clipboard.js':'clipboard.js','/nai.js':'nai.js','/palette.css':'palette.css','/ui.js':'ui.js','/ui.css':'ui.css','/compare.js':'compare.js','/enhancements.js':'enhancements.js','/enhancements.css':'enhancements.css','/warehouse.js':'warehouse.js','/warehouse.css':'warehouse.css','/pixai-parser.js':'pixai-parser.js'}
+files = {'/library-detail.js':'library-detail.js','/library-detail.css':'library-detail.css','/preset-management.js':'preset-management.js','/preset-management.css':'preset-management.css','/nai-presets.js':'nai-presets.js','/editor-workflow.js':'editor-workflow.js','/nai-workflow.css':'nai-workflow.css','/nai-metadata.js':'nai-metadata.js','/nai-editor.js':'nai-editor.js','/library-ui.js':'library-ui.js','/library-ui.css':'library-ui.css','/':'index.html','/index.html':'index.html','/modal-layout.css':'modal-layout.css','/clipboard.js':'clipboard.js','/nai.js':'nai.js','/palette.css':'palette.css','/ui.js':'ui.js','/ui.css':'ui.css','/compare.js':'compare.js','/enhancements.js':'enhancements.js','/enhancements.css':'enhancements.css','/warehouse.js':'warehouse.js','/warehouse.css':'warehouse.css','/pixai-parser.js':'pixai-parser.js'}
 class Handler(BaseHTTPRequestHandler):
     def send_json(self, code, value):
         data=json.dumps(value, ensure_ascii=False).encode('utf-8')
@@ -12,7 +12,7 @@ class Handler(BaseHTTPRequestHandler):
     def valid_host(self): return self.headers.get('Host') in [f'127.0.0.1:{port}',f'localhost:{port}']
     def do_GET(self):
         if not self.valid_host(): return self.send_json(403,{'error':'接続元が不正です'})
-        if self.path=='/api/health': return self.send_json(200,{'app':'prompt-palette','version':'0.9.2','capabilities':['pixai-public'],'runtime':'python','port':port})
+        if self.path=='/api/health': return self.send_json(200,{'app':'prompt-palette','version':'0.12.2','capabilities':['pixai-public'],'runtime':'python','port':port})
         name=files.get(self.path.split('?')[0])
         if not name: return self.send_json(404,{'error':'Not found'})
         data=(root/name).read_bytes()
@@ -32,5 +32,5 @@ class Handler(BaseHTTPRequestHandler):
             print(json.dumps({'event':'pixai-error','path':self.path,'errorType':'communication','message':str(e)}),flush=True)
             self.send_json(502,{'error':'取得できませんでした：'+str(e),'errorType':'communication','stage':'upstream'})
 server=ThreadingHTTPServer(('127.0.0.1',port),Handler)
-print(f'PROMPT PALETTE v0.9.2: http://127.0.0.1:{port}',flush=True)
+print(f'PROMPT PALETTE v0.12.2: http://127.0.0.1:{port}',flush=True)
 server.serve_forever()
